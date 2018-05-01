@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1525202873 source:c:\users\toti\desktop\utn programacion\tp_2_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
+1525202851 c:\users\toti\desktop\utn programacion\tp_2_cascara\funciones.h
+
+1525203336 source:c:\users\toti\desktop\utn programacion\tp_2_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"funciones.h"
+
