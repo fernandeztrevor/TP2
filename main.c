@@ -6,21 +6,20 @@
 #define cantidad 20
 #define valor 0
 
-
-
 int main()
 {
     persona listaPersonas[cantidad];
     int espacioLibre;
     int resultadoBusqueda;
-    char auxiliarNombre;
+    char auxiliarNombre[20];
+    char auxiliarEdadStr[3];
+    char auxiliarDNIStr[10];
     int auxiliarEdad;
     int auxiliarDNI;
     char seguir='s';
     int opcion=0;
     int i;
     int j;
-
 
     inicializar(listaPersonas, cantidad, valor);
 
@@ -41,7 +40,7 @@ int main()
                     espacioLibre = obtenerEspacioLibre(listaPersonas, cantidad, valor);
 
 
-                        if(espacioLibre==1)
+                        if(espacioLibre==-1)
                         {
                             printf("No quedan lugares libres");
                             break;
@@ -50,24 +49,61 @@ int main()
                         {
                         printf("\nIngrese nombre:");
                         fflush(stdin);
-                        //scanf("%s", listaPersonas[i].nombre);
                         gets(auxiliarNombre);
+                        while (letras(auxiliarNombre)!=1)
+                        {
+                            printf("El nombre solo puede estar compuesto por letras, reingrese:\n");
+                            gets(auxiliarNombre);
+                        }
+
                         printf("\nIngrese edad:");
                         fflush(stdin);
-                        scanf("%d", &auxiliarEdad);
-                        //scanf("%d", listaPersonas[i].edad);
-                        printf("\nIngrese DNI:");
-                        n
-                        while (numerico==0)
-                        fflush(stdin);
-                        scanf("%d", &auxiliarDNI);
+                        gets(auxiliarEdadStr);
+                        while (numerico(auxiliarEdadStr)!=1)
+                        {
+                            printf("La edad solo puede estar compuesta por números, reingrese:\n");
+                            gets(auxiliarEdadStr);
+                        }
+                        auxiliarEdad=atoi(auxiliarEdadStr);
 
-                        //scanf("%d", listaPersonas[i].dni);
+                        printf("\nIngrese DNI:");
+                        fflush(stdin);
+                        gets(auxiliarDNIStr);
+                        while (numerico(auxiliarDNIStr)!=1)
+                        {
+                            printf("El DNI solo puede estar compuesta por números, reingrese:\n");
+                            gets(auxiliarDNIStr);
+                        }
+                        auxiliarDNI=atoi(auxiliarDNIStr);
+
+                        strcpy(listaPersonas[espacioLibre].nombre,auxiliarNombre);
+                        listaPersonas[espacioLibre].edad=auxiliarEdad;
+                        listaPersonas[espacioLibre].dni=auxiliarDNI;
                         listaPersonas[espacioLibre].estado=1;
                         }
                 }
                 break;
             case 2:
+                printf("\nSeleccione la persona que desea borrar:\n");
+
+                for(i=0; i<cantidad; i++)
+                {
+                    if(listaPersonas[i].estado == 1)
+                        printf("%d -- %s -- %d -- %d\n", i+1, listaPersonas[i].nombre, listaPersonas[i].edad, listaPersonas[i].dni);
+                }
+                scanf("%d", &i);
+                /*while (numerico(i)!=1)
+                {
+                if(listaPersonas[i].estado=!1)
+                    {
+                        printf("Legajo inexistente");
+                    }
+                }*/
+
+
+                listaPersonas[i-1].estado=-1;
+
+
                 break;
             case 3:
                 break;

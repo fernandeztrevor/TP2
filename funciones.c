@@ -20,7 +20,7 @@ int letras(char str[])
     int i=0;
     while(str[i] != '\0')
     {
-        if ((str[i] != ' ') && (str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
+        if ((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
             return 0;
         i++;
     }
@@ -59,5 +59,5 @@ int obtenerEspacioLibre(persona listaPersonas[], int cantidad, int valor)
          return i;
      }
     }
-    return 1;
+    return -1;
 }

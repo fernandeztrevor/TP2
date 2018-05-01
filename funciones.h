@@ -3,7 +3,7 @@
 
 typedef struct {
 
-    char nombre;
+    char nombre[20];
     int edad;
     int estado;
     int dni;
