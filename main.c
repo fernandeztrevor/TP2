@@ -6,9 +6,11 @@
 #define cantidad 20
 #define valor 0
 
+
 int main()
 {
     persona listaPersonas[cantidad];
+    persona auxiliarCompleto;
     int espacioLibre;
     int resultadoBusqueda;
     char auxiliarNombre[20];
@@ -99,13 +101,40 @@ int main()
                         printf("Legajo inexistente");
                     }
                 }*/
-
-
                 listaPersonas[i-1].estado=-1;
 
 
                 break;
             case 3:
+                {
+                    for(i=0; i<cantidad; i++)
+                    {
+                        if(listaPersonas[i].estado==-1)
+                        {
+                            continue;
+                        }
+                        for(j=i+1; j<cantidad; j++)
+                        {
+                            if(listaPersonas[i].estado==-1)
+                        {
+                            continue;
+                        }
+                        if(strcmp(listaPersonas[i].nombre,listaPersonas[j].nombre)>0)
+                        {
+                            auxiliarCompleto = listaPersonas[j];
+                            listaPersonas[j] = listaPersonas[i];
+                            listaPersonas[i] = auxiliarCompleto;
+                        }
+                        }
+
+                    }
+                  for(i=0; i<cantidad; i++)
+                {
+                    if(listaPersonas[i].estado == 1)
+                        printf("%s -- %d -- %d\n", listaPersonas[i].nombre, listaPersonas[i].edad, listaPersonas[i].dni);
+                }
+                }
+
                 break;
             case 4:
                 break;
