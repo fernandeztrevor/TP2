@@ -43,17 +43,34 @@ void inicializar(persona listaPersonas[], int cantidad, int valor);
 
 /**
  * Obtiene el primer indice libre del array.
- * @param lista el array se pasa como parametro.
- * @return el primer indice disponible
+ * @param listaPersonas el array se pasa como parametro.
+ * @return el primer indice disponible o -1 si no hay espacio.
  */
 int obtenerEspacioLibre(persona listaPersonas[], int cantidad, int valor);
 
 /**
- * Obtiene el indice que coincide con el dni pasado por parametro.
- * @param lista el array se pasa como parametro.
- * @param dni el dni a ser buscado en el array.
- * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
+ * Imprime una lista de los datos cargados.
+ * @param listaPersonas el array se pasa como parametro.
+ * @param cantidad se pasa como parametro.
+ * @param j se pasa como para ser utilizado como contador.
+  * @return devuelve la cantidad de items mostrados.
  */
-//int buscarPorDni(EPersona lista[], int dni);
+int imprimirLista(persona listaPersonas[], int cantidad, int j);
+
+/**
+ * Imprime una lista de los datos cargados.
+ * @param listaPersonas el array se pasa como parametro.
+ * @param cantidad se pasa como parametro.
+ */
+void imprimirListaVoid(persona listaPersonas[], int cantidad);
+
+/**
+ * Ordena alfabéticamente los datos cargados.
+ * @param listaPersonas el array se pasa como parametro.
+ * @param cantidad se pasa como parametro.
+ */
+void ordenAlfabetico(listapersonas, cantidad);
+
+
 
 #endif // FUNCIONES_H_INCLUDED

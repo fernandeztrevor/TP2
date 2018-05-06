@@ -10,7 +10,6 @@
 int main()
 {
     persona listaPersonas[cantidad];
-    persona auxiliarCompleto;
     int espacioLibre;
     int resultadoBusqueda;
     char auxiliarNombre[20];
@@ -20,6 +19,7 @@ int main()
     int auxiliarDNI;
     char seguir='s';
     int opcion=0;
+    char IStr[10];
     int i;
     int j;
 
@@ -27,7 +27,7 @@ int main()
 
     while(seguir=='s')
     {
-        printf("1- Agregar persona\n");
+        printf("\n1- Agregar persona\n");
         printf("2- Borrar persona\n");
         printf("3- Imprimir lista ordenada por  nombre\n");
         printf("4- Imprimir grafico de edades\n\n");
@@ -85,54 +85,48 @@ int main()
                         }
                 }
                 break;
+
             case 2:
-                printf("\nSeleccione la persona que desea borrar:\n");
-
-                for(i=0; i<cantidad; i++)
                 {
-                    if(listaPersonas[i].estado == 1)
-                        printf("%d -- %s -- %d -- %d\n", i+1, listaPersonas[i].nombre, listaPersonas[i].edad, listaPersonas[i].dni);
+
+                imprimirLista(listaPersonas, cantidad, j);
+
+                if (j == 0)
+                {
+                    printf("No existen datos cargados");
                 }
-                scanf("%d", &i);
-                /*while (numerico(i)!=1)
+                else
                 {
-                if(listaPersonas[i].estado=!1)
+                   printf("\nIngrese el índice de la persona que desea borrar:\n");
+                    fflush(stdin);
+                    gets(IStr);
+
+
+                while (numerico(IStr)!=1)
+                {
+                    printf("\nError. Debe ingresar el numero de legajo. Reingrese\n");
+                        fflush(stdin);
+                        gets(IStr);
+                }
+
+                i=atoi(IStr);
+
+                if(listaPersonas[i-1].estado == valor)
                     {
-                        printf("Legajo inexistente");
+                        printf("\nLegajo inexistente\n");
                     }
-                }*/
-                listaPersonas[i-1].estado=-1;
-
-
+                    else
+                    {
+                        listaPersonas[i-1].estado = valor;
+                    }
+                }
+                }
                 break;
             case 3:
                 {
-                    for(i=0; i<cantidad; i++)
-                    {
-                        if(listaPersonas[i].estado==-1)
-                        {
-                            continue;
-                        }
-                        for(j=i+1; j<cantidad; j++)
-                        {
-                            if(listaPersonas[i].estado==-1)
-                        {
-                            continue;
-                        }
-                        if(strcmp(listaPersonas[i].nombre,listaPersonas[j].nombre)>0)
-                        {
-                            auxiliarCompleto = listaPersonas[j];
-                            listaPersonas[j] = listaPersonas[i];
-                            listaPersonas[i] = auxiliarCompleto;
-                        }
-                        }
+                    ordenAlfabetico(listaPersonas, cantidad);
 
-                    }
-                  for(i=0; i<cantidad; i++)
-                {
-                    if(listaPersonas[i].estado == 1)
-                        printf("%s -- %d -- %d\n", listaPersonas[i].nombre, listaPersonas[i].edad, listaPersonas[i].dni);
-                }
+                    imprimirListaVoid(listaPersonas, cantidad);
                 }
 
                 break;
