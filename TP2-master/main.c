@@ -21,6 +21,7 @@ int main()
     int opcion=0;
     int i;
     int j;
+    printf("DEMORA EN LA ENTREGA DEBIDO A QUE TODAVÍA MI USUARIO NO ESTA DADO DE ALTA EN EL CAMPUS\n");
     inicializar(listaPersonas, cantidad, valor);
     hardcodePersonas(listaPersonas, cantidad);
     while(seguir=='s')
